@@ -12,39 +12,6 @@ This project is built to understand the complete RAG pipeline from:
 
 # 🚀 Project Overview
 
-📁 Project Structure
-
-Chatbot-RAG-App/
-│
-├── chatbot.py
-|
-|── inputs/
-│   └── *.pdf
-│
-├── models/
-│   ├── chains.py
-│   ├── chat_model.py
-│   ├── memory.py
-│   ├── parsing.py
-│   └── prompt.py
-│
-├── rag/
-│   │
-│   ├── document_loader.py
-│   ├── text_splitter.py
-│   ├── embedding_model.py
-│   ├── huggingface_model.py
-│   ├── embedding_vector.py
-│   ├── vector_store.py
-│   ├── retrieval.py
-│   └── create_context.py
-│
-├── chroma_db/
-│
-├── .env
-├── .gitignore
-└── requirements.txt
-
 This project implements a basic but complete **Retrieval-Augmented Generation system**.
 
 The user provides PDF documents.
@@ -74,11 +41,7 @@ A normal LLM has a major limitation.
 Suppose we have a private PDF:
 
 ```text
-my_resume.pdf
-
-## 🏗️ RAG Architecture
-
-```text
+🏗️ RAG Architecture
 
                 RAG
                  │
