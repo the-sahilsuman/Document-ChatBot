@@ -1,0 +1,127 @@
+[
+  {
+    "id": "BM-01",
+    "query": "How do I check whether bit i of an integer is set?",
+    "ideal_answer": "Right-shift the number by i positions and mask with 1: (num >> i) & 1. Bit positions are counted from the right starting at 0."
+  },
+  {
+    "id": "BM-02",
+    "query": "What is the standard bit trick to turn the ith bit ON without changing the other bits?",
+    "ideal_answer": "Use OR with a mask containing only bit i: num | (1 << i)."
+  },
+  {
+    "id": "BM-03",
+    "query": "How can I clear only the lowest set bit of a number?",
+    "ideal_answer": "Use num & (num - 1). This clears exactly the lowest set bit."
+  },
+  {
+    "id": "BM-04",
+    "query": "What is Brian Kernighan's algorithm and why can it be faster than checking every bit?",
+    "ideal_answer": "Repeatedly perform num &= num - 1 and increment a counter. Each iteration removes exactly one set bit, so it runs in O(k), where k is the number of set bits."
+  },
+  {
+    "id": "BM-05",
+    "query": "How do I calculate the Hamming distance between two integers using bit manipulation?",
+    "ideal_answer": "XOR the two integers and count the set bits: popcount(a ^ b). Every 1 in a ^ b represents a bit position where the numbers differ."
+  },
+  {
+    "id": "BM-06",
+    "query": "Why does XOR solve the 'single number' problem when every other element appears twice?",
+    "ideal_answer": "Because XOR is self-canceling: x ^ x = 0 and x ^ 0 = x. Duplicate pairs cancel, leaving the element that appears once."
+  },
+  {
+    "id": "BM-07",
+    "query": "What is the XOR approach for finding two numbers that appear once while every other number appears twice?",
+    "ideal_answer": "XOR all numbers to get a ^ b, isolate a bit where a and b differ, partition the numbers by that bit, and XOR each group separately to recover the two unique values."
+  },
+  {
+    "id": "BM-08",
+    "query": "How can I find the missing number from 0 through n using XOR?",
+    "ideal_answer": "Initialize the result with n, then XOR every index and every array value. Matching present numbers cancel, leaving the missing number."
+  },
+  {
+    "id": "BM-09",
+    "query": "How do I generate every subset of a small set using bitmasks?",
+    "ideal_answer": "Iterate mask from 0 to 2^n - 1. Item i belongs to the subset when mask & (1 << i) is nonzero. This enumerates all 2^n subsets."
+  },
+  {
+    "id": "BM-10",
+    "query": "What is the difference between union, intersection, difference, and symmetric difference when sets are represented as bitmasks?",
+    "ideal_answer": "Union uses |, intersection uses &, difference A\\B uses A & ~B, and symmetric difference uses ^."
+  },
+  {
+    "id": "BM-11",
+    "query": "How can left and right shifts be used to multiply or divide by powers of two?",
+    "ideal_answer": "For non-negative integers, x << k equals x * 2^k and x >> k equals x // 2^k."
+  },
+  {
+    "id": "BM-12",
+    "query": "How do I construct a mask whose lowest n bits are all 1?",
+    "ideal_answer": "Use (1 << n) - 1. For example, n = 4 produces 0b1111."
+  },
+  {
+    "id": "BM-13",
+    "query": "What is the standard bit trick for checking whether a positive integer is a power of two?",
+    "ideal_answer": "Check n > 0 and (n & (n - 1)) == 0. A positive power of two has exactly one set bit."
+  },
+  {
+    "id": "BM-14",
+    "query": "How can two integers be added without using the + operator?",
+    "ideal_answer": "Use XOR for the sum without carry and (a & b) << 1 for the carry. Repeat until the carry becomes zero."
+  },
+  {
+    "id": "BM-15",
+    "query": "How can subtraction be implemented using the bitwise addition technique?",
+    "ideal_answer": "Negate the second operand using two's complement, then add: subtract_without_minus(a,b) = add_without_plus(a, negate_number(b))."
+  },
+  {
+    "id": "BM-16",
+    "query": "Why does Python's ~x not behave like flipping a fixed 32-bit integer?",
+    "ideal_answer": "Python integers have arbitrary precision, so ~x equals -(x+1). To simulate a fixed 32-bit flip, use an explicit 32-bit mask such as 0xFFFFFFFF."
+  },
+  {
+    "id": "BM-17",
+    "query": "How do I simulate a signed 32-bit integer in Python after a bitwise operation?",
+    "ideal_answer": "Mask with 0xFFFFFFFF. If the result is >= 2^31, subtract 2^32 to reinterpret it as a negative signed 32-bit value."
+  },
+  {
+    "id": "BM-18",
+    "query": "How do I reverse the bits of a 32-bit unsigned integer?",
+    "ideal_answer": "For each bit position i from 0 to 31, extract (n >> i) & 1 and place it at position 31-i using result |= bit << (31-i)."
+  },
+  {
+    "id": "BM-19",
+    "query": "What is Gray code, and how do I convert binary n to Gray code?",
+    "ideal_answer": "Gray code orders values so consecutive values differ in exactly one bit. Convert binary n using n ^ (n >> 1)."
+  },
+  {
+    "id": "BM-20",
+    "query": "How can I iterate over every submask of a given mask efficiently?",
+    "ideal_answer": "Start with submask = mask and repeatedly set submask = (submask - 1) & mask until it reaches zero. Process zero separately if needed."
+  },
+  {
+    "id": "BM-21",
+    "query": "What is the complexity of enumerating all submasks of all masks, and why is it not O(4^n)?",
+    "ideal_answer": "The total number of mask-submask pairs is O(3^n), not O(4^n). This is the standard bound for full submask enumeration."
+  },
+  {
+    "id": "BM-22",
+    "query": "How does SOS DP improve over naive submask enumeration?",
+    "ideal_answer": "SOS DP processes one bit position at a time and accumulates values from masks with that bit removed, reducing typical work to O(2^n * n) instead of O(3^n)."
+  },
+  {
+    "id": "BM-23",
+    "query": "How can a bitmask be used to represent unvisited cities in a TSP-style DP?",
+    "ideal_answer": "If FULL contains all city bits and mask contains visited cities, use FULL & ~mask to get unvisited cities. Then isolate candidates with temp & -temp and remove them iteratively."
+  },
+  {
+    "id": "BM-24",
+    "query": "How can I find the maximum XOR obtainable from any subset without enumerating all subsets?",
+    "ideal_answer": "Build a linear XOR basis using Gaussian-elimination-style bit reduction. This avoids O(2^n) subset enumeration and works in O(n * bit-width)."
+  },
+  {
+    "id": "BM-25",
+    "query": "If I need to find the minimum XOR pair in an array, what approach does the handbook recommend?",
+    "ideal_answer": "Sort the array and compare adjacent elements. The minimum XOR pair is always adjacent after sorting, giving O(n log n) overall complexity."
+  }
+]

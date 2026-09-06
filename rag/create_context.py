@@ -1,7 +1,9 @@
 from langchain_core.runnables import RunnableLambda
+from rag.runnable import runnable
 
 
-def context(docs):
+@runnable
+def create_context(docs):
 
     context = "\n\n".join(
         doc.page_content
@@ -9,6 +11,3 @@ def context(docs):
     )
 
     return context
-
-create_context=RunnableLambda(context)
-

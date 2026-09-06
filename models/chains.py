@@ -1,5 +1,6 @@
 from rag.retrieval import retriever
 from rag.create_context import create_context
+from rag.vector_store import create_retriever
 
 from models.prompt import chat_template
 from models.chat_model import llm

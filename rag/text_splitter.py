@@ -3,8 +3,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from rag.document_loader import load_documents
 
 splitter=RecursiveCharacterTextSplitter(
-        chunk_size=200,
-        chunk_overlap=0
+        chunk_size=300,
+        chunk_overlap=20
     )
 
 def create_chunks():

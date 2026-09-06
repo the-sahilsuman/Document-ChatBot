@@ -2,6 +2,7 @@ from langchain_chroma import Chroma
 
 from rag.huggingface_model import embedding_model
 from rag.text_splitter import create_chunks
+# from rag.runnable import runnable
 
 vector_store=Chroma(
         embedding_function=embedding_model,
@@ -22,7 +23,7 @@ def create_vector_store():
 def load_vector_store():
     return vector_store
 
-
+# @runnable
 def create_retriever():
 
     vector_store=load_vector_store()
@@ -30,7 +31,7 @@ def create_retriever():
     retriever=vector_store.as_retriever(
         search_type="similarity",
         search_kwargs={
-            "k": 1
+            "k": 5
         }
     )
 
