@@ -36,3 +36,5 @@ class HuggingFaceJudge(DeepEvalBaseLLM):
 
 
 judge_model = HuggingFaceJudge()
+
+

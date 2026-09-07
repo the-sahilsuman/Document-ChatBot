@@ -11,16 +11,21 @@ from deepeval.metrics import ContextualRecallMetric, ContextualPrecisionMetric
 
 from rag.retrieval import retriever
 from rag.aws_model import aws_judge_model
+from rag.gemini_model import google_judge_model
+# from rag.reranker import RerankingRetriever
 
 
 
 
-GOLDEN_PATH = "golden_datasets/dataset.json"
-JUDGE_MODEL = aws_judge_model  # NOTE: differs from the other evals (gpt-4o-mini)
+GOLDEN_PATH = "golden_datasets/retriever_dataset.json"
+JUDGE_MODEL = google_judge_model  # NOTE: differs from the other evals (gpt-4o-mini)
 THRESHOLD = 0.7
 
 with open(GOLDEN_PATH) as f:
     goldens=json.load(f)
+
+
+# rank_retriever=RerankingRetriever()
 
 
 def run(retriever):

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "q001",
+    "ideal_context": "FastAPI is a modern Python web framework for building APIs. It is built on Starlette for web functionality and Pydantic for data validation and serialization. FastAPI uses Python type hints to automatically generate request validation, API documentation, and OpenAPI schemas.",
+    "query": "What is FastAPI and what are its main advantages?"
+  },
+  {
+    "id": "q002",
+    "ideal_context": "Pydantic models are used in FastAPI to define the structure and validation rules of request and response data. FastAPI automatically validates incoming request data against the Pydantic model and returns a validation error when the data does not match the expected schema.",
+    "query": "How does FastAPI validate request data?"
+  },
+  {
+    "id": "q003",
+    "ideal_context": "An API endpoint is a specific URL and HTTP method through which a client can interact with a backend application. In FastAPI, endpoints are commonly created using decorators such as @app.get(), @app.post(), @app.put(), and @app.delete().",
+    "query": "What is an API endpoint in FastAPI?"
+  },
+  {
+    "id": "q004",
+    "ideal_context": "HTTP GET is generally used to retrieve data, POST is used to create new resources or submit data, PUT is used to replace or update an existing resource, PATCH is used for partial updates, and DELETE is used to remove a resource.",
+    "query": "What is the difference between GET, POST, PUT, PATCH, and DELETE?"
+  },
+  {
+    "id": "q005",
+    "ideal_context": "JWT, or JSON Web Token, is a compact token format commonly used for stateless authentication. A JWT typically contains a header, payload, and signature. After successful authentication, the server can issue a JWT to the client, which sends the token with subsequent requests.",
+    "query": "What is JWT authentication?"
+  },
+  {
+    "id": "q006",
+    "ideal_context": "OAuth2PasswordBearer in FastAPI is a dependency that extracts a bearer token from the Authorization header. It does not itself authenticate or validate the JWT. The extracted token must be passed to authentication logic that verifies its signature, expiration, and claims.",
+    "query": "Does OAuth2PasswordBearer validate a JWT token?"
+  },
+  {
+    "id": "q007",
+    "ideal_context": "Amazon S3 is an object storage service designed to store and retrieve data such as files, images, videos, backups, and documents. Data in S3 is stored as objects inside buckets. S3 provides high durability and supports access control, encryption, versioning, and lifecycle management.",
+    "query": "What is Amazon S3 used for?"
+  },
+  {
+    "id": "q008",
+    "ideal_context": "Amazon DynamoDB is a fully managed NoSQL database service provided by AWS. It supports key-value and document data models and is designed for low-latency performance at scale. DynamoDB tables use primary keys to uniquely identify items.",
+    "query": "What is DynamoDB and when would you use it?"
+  },
+  {
+    "id": "q009",
+    "ideal_context": "Amazon Cognito provides authentication, authorization, and user management capabilities for web and mobile applications. Cognito User Pools can handle user registration, login, password reset, MFA, and token issuance. Applications can use the tokens to authenticate users.",
+    "query": "What does Amazon Cognito provide?"
+  },
+  {
+    "id": "q010",
+    "ideal_context": "AWS Lambda is a serverless compute service that runs code in response to events without requiring the developer to manage servers. Lambda functions can be triggered by services such as API Gateway, S3, EventBridge, DynamoDB, and SQS.",
+    "query": "What is AWS Lambda?"
+  },
+  {
+    "id": "q011",
+    "ideal_context": "Amazon API Gateway is a managed service for creating, publishing, monitoring, and securing APIs. It can expose HTTP or REST endpoints that invoke backend services such as AWS Lambda. API Gateway can also provide authentication, throttling, request validation, and monitoring features.",
+    "query": "What is the role of API Gateway in an AWS application?"
+  },
+  {
+    "id": "q012",
+    "ideal_context": "Environment variables are commonly used to store configuration values such as database URLs, API keys, AWS region names, and application settings outside the source code. In Python applications, a .env file can be loaded using libraries such as python-dotenv during local development.",
+    "query": "Why should environment variables be used in a backend application?"
+  },
+  {
+    "id": "q013",
+    "ideal_context": "Docker packages an application together with its dependencies and configuration into a container image. Containers provide an isolated and consistent runtime environment, making applications easier to develop, test, deploy, and scale across different environments.",
+    "query": "What problem does Docker solve?"
+  },
+  {
+    "id": "q014",
+    "ideal_context": "Kubernetes is a container orchestration platform used to deploy, manage, scale, and maintain containerized applications. Kubernetes provides abstractions such as Pods, Deployments, Services, ConfigMaps, Secrets, and Ingress to manage applications in a cluster.",
+    "query": "What is Kubernetes used for?"
+  },
+  {
+    "id": "q015",
+    "ideal_context": "A RAG system, or Retrieval-Augmented Generation system, first retrieves relevant information from a knowledge base and then provides that information to a language model as context. The language model generates an answer using the retrieved context, which can reduce hallucinations and allow the system to answer questions using private or domain-specific information.",
+    "query": "How does a RAG system generate an answer?"
+  }
+]

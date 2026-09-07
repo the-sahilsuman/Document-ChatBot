@@ -14,3 +14,5 @@ parallel_chain=RunnableParallel({
 
 chain= parallel_chain | chat_template | llm | parser
 
+if __name__=="__main__":
+    response=chain.invoke()
